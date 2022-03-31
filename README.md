@@ -9,16 +9,17 @@ cd dotfiles
 ```  
 # for bash
 ```
-cp .bashrc $HOME
+cp .bashrc ~/
 sudo cp bash.bashrc /etc
 ```
 
 # for vim
 ```
-cp .vimrc $HOME
+cp .vimrc ~/
 sudo cp .vimrc /root
 ``` 
 # for urxvt
 ```
 cp .Xresources $HOME
+xrdb ~/.Xresources
 ```
