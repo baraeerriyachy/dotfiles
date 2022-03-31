@@ -20,6 +20,6 @@ sudo cp .vimrc /root
 ``` 
 # for urxvt
 ```
-cp .Xresources $HOME
+cp .Xresources ~/
 xrdb ~/.Xresources
 ```
