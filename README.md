@@ -18,3 +18,7 @@ sudo cp bash.bashrc /etc
 cp .vimrc $HOME
 sudo cp .vimrc /root
 ``` 
+# for urxvt
+```
+cp .Xresources $HOME
+```
