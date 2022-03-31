@@ -1,0 +1,25 @@
+!! Colorscheme
+
+! special
+*.foreground: white
+*.background: #000000
+*.cursorColor: #afbfbf
+
+!! URxvt Appearance
+URxvt.font: xft:monospace:size=9
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 1000
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt.depth: 32
+URxvt.iso14755: false
+Urxvt.transparent: true
+URxvt.background: rgba:0000/0000/0000/aaaa
+
+!! URxvt Copy & Paste
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
