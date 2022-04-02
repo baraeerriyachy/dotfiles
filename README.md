@@ -23,3 +23,7 @@ sudo cp .vimrc /root
 cp .Xresources ~/
 xrdb ~/.Xresources
 ```
+# for zsh
+```
+cp .zshrc ~/
+```
