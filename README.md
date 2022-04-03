@@ -10,7 +10,6 @@ cd dotfiles
 # for bash
 ```
 cp .bashrc ~/
-sudo cp bash.bashrc /etc
 ```
 
 # for vim
