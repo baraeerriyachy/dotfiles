@@ -1,5 +1,6 @@
 syntax on
 set nu
+set background=dark
 highlight LineNr ctermfg=45
 set laststatus=2
 hi StatusLine ctermbg=00 ctermfg=45
