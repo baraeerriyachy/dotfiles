@@ -1,5 +1,6 @@
 syntax on
 set nu
+set incsearch
 set background=dark
 highlight LineNr ctermfg=45
 set laststatus=2
