@@ -22,9 +22,9 @@ bindkey -v
 KEYTIMEOUT=1
 function zle-line-init zle-keymap-select {
     case ${KEYMAP} in
-        (vicmd)      PROMPT="[%B%F{green}%n%f%F{green}@%F{green}%m%f%F{blue} %~%b%f%]]%F{yellow}%B$%b ";;
-        (main|viins) PROMPT="[%B%F{green}%n%f%F{green}@%F{green}%m%f%F{blue} %~%b%f%]]%B$%b ";;
-        (*)          PROMPT="[%B%F{green}%n%f%F{green}@%F{green}%m%f%F{blue} %~%b%f%]]%B$%b ";;
+        (vicmd)      PROMPT="%B[%F{green}%n%f%F{green}@%F{green}%m%f%F{blue} %~%f%]]%F{yellow}$%b ";;
+        (main|viins) PROMPT="%B[%F{green}%n%f%F{green}@%F{green}%m%f%F{blue} %~%f%]]$%b ";;
+        (*)          PROMPT="%B[%F{green}%n%f%F{green}@%F{green}%m%f%F{blue} %~%f%]]$%b ";;
     esac
     zle reset-prompt
 }
