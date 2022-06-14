@@ -5,11 +5,12 @@ SAVEHIST=1000
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
+PROMPT="%B[%F{green}%n%f%F{green}@%F{green}%m%f%F{blue} %~%f%]]$%b "
+
 alias ls='ls --color=auto'
 alias ip='ip -color=auto'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
-PROMPT="%B[%F{green}%n%f%F{green}@%F{green}%m%f%F{blue} %~%f%]]$%b "
 
 # Basic auto/tab complete:
 autoload -U compinit
