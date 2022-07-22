@@ -17,5 +17,5 @@ listview {
 	scrollbar: false;
 }
 
-@import "~/local/share/rofi/themes/theme.rasi"
+@import "~/.local/share/rofi/themes/theme.rasi"
 
