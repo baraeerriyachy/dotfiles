@@ -1,0 +1,21 @@
+configuration {
+	font: "monospace 15";
+	modi: "drun,window,run";
+	drun-display-format: "{icon} {name}";
+	window-format: "{w} {c}  {t}";
+	show-icons: true;
+	fake-transparency: true;
+	sidebar-mode: false;
+}
+
+window {
+	width: 50%;
+	height: 50%;
+}
+
+listview { 
+	scrollbar: false;
+}
+
+@import "/usr/share/rofi/themes/theme.rasi"
+
