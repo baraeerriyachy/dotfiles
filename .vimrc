@@ -13,3 +13,4 @@ set statusline+=\ %y
 set statusline+=\ [%{&fileformat}\]
 set statusline+=\ %l:%c
 set statusline+=\ %p%%
+set ttimeoutlen=0
