@@ -7,6 +7,18 @@ M.base46 = {
 
 -- Statusline must remain under ui
 M.ui = {
+  tabufline = {
+    show_numbers = false,
+    enabled = true,
+    lazyload = true,
+    order = { "treeOffset", "buffers", "tabs", "btns" },
+    modules = {
+      -- This removes the [x] buttons from the right side
+      btns = function()
+        return ""
+      end,
+    },
+  },
   statusline = {
     modules = {
       -- 1. Separate dot function
