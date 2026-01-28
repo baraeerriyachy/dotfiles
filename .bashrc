@@ -10,10 +10,11 @@ alias ip='ip -color=auto'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 
-PS1='${arch_chroot:+($arch_chroot)}[\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]]\$ '
+PS1='\[\e[36m\]\w\[\e[0m\] \[\e[32m\]\$\[\e[0m\] '
+#PS1='${arch_chroot:+($arch_chroot)}[\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]]\$ '
 
 export EDITOR=nvim 
 export OPENCV_LOG_LEVEL=ERROR
 alias vim='nvim'
 alias vi='nvim'
-bind -m vi-command -x '"v": printf "%s" "$READLINE_LINE" | vim -n -'
+alias nano='nvim'
