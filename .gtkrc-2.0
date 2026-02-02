@@ -1,0 +1,78 @@
+# ---------------------------------------------------------
+# Unified Adwaita Dark GTK2 - Final Inactive Color Fix
+# ---------------------------------------------------------
+
+# CORE PALETTE
+# Setting base_color and bg_color to be identical prevents "grey and white" mixing.
+gtk-color-scheme = "fg_color:#ffffff\nbg_color:#242424\ntext_color:#ffffff\nbase_color:#242424\nselected_fg_color:#ffffff\nselected_bg_color:#3584e4\ninsensitive_fg_color:#a0a0a0\ninsensitive_bg_color:#242424"
+
+gtk-icon-sizes = "gtk-button=16,16:gtk-dnd=16,16:panel=16,16:gtk-small-toolbar=16,16:gtk-large-toolbar=24,24:"
+gtk-button-images = 0
+gtk-auto-mnemonics = 1
+
+style "murrine-default" {
+    # Foreground / Text
+    fg[NORMAL]        = @fg_color
+    fg[PRELIGHT]      = @fg_color
+    fg[SELECTED]      = @selected_fg_color
+    fg[ACTIVE]        = @selected_fg_color
+    fg[INSENSITIVE]   = shade(0.7, @fg_color) 
+
+    text[NORMAL]      = @text_color
+    text[PRELIGHT]    = @text_color
+    text[SELECTED]    = @selected_fg_color
+    text[ACTIVE]      = @selected_fg_color
+    text[INSENSITIVE] = @insensitive_fg_color
+
+    # Background / Base (Force them to be identical for inactive state)
+    bg[NORMAL]        = @bg_color
+    bg[PRELIGHT]      = shade(2.0, @bg_color)
+    bg[SELECTED]      = @selected_bg_color
+    bg[ACTIVE]        = @selected_bg_color
+
+    base[NORMAL]      = shade(1.2, @bg_color)
+    base[PRELIGHT]    = shade(2.0, @bg_color)
+    base[SELECTED]    = @selected_bg_color
+    base[INSENSITIVE] = shade(2.0, @bg_color)
+    base[ACTIVE]      = @selected_bg_color
+
+}
+
+# SIDEBAR & TOP BAR INTERACTION
+style "menu-item-interaction-fix" = "murrine-default" {
+    bg[PRELIGHT]   = shade(2.0, @bg_color) # Lighter hover
+    bg[ACTIVE]     = @selected_bg_color    # Blue on click
+    bg[SELECTED]   = @selected_bg_color
+    
+    # Ensuring base and bg match here as well for sidebars
+    base[NORMAL]      = @bg_color
+    base[INSENSITIVE] = @bg_color
+    
+}
+
+style "murrine-button" = "murrine-default" {
+    xthickness = 4
+    ythickness = 4
+    bg[ACTIVE]   = @selected_bg_color
+    bg[SELECTED] = @selected_bg_color
+    
+    # Final cleanup of inactive button colors
+    bg[INSENSITIVE]   = @bg_color
+    base[INSENSITIVE] = @bg_color
+}
+
+style "murrine-entry" = "murrine-default" {
+    base[NORMAL]      = "#1e1e1e" # Slight contrast for active input
+    base[INSENSITIVE] = @bg_color # Prevents white entry when disabled
+    bg[INSENSITIVE]   = @bg_color
+}
+
+# APPLICATION
+class "GtkWidget"    style "murrine-default"
+class "GtkButton"    style "murrine-button"
+class "GtkEntry"     style "murrine-entry"
+
+widget_class "*<GtkMenuItem>*" style "menu-item-interaction-fix"
+widget_class "*<GtkMenuBar>*"  style "menu-item-interaction-fix"
+widget_class "*<GtkButton>"   style "murrine-button"
+widget_class "*<GtkEntry>"    style "murrine-entry"
