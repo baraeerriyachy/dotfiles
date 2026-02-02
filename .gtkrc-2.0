@@ -4,7 +4,7 @@
 
 # CORE PALETTE
 # Setting base_color and bg_color to be identical prevents "grey and white" mixing.
-gtk-color-scheme = "fg_color:#ffffff\nbg_color:#242424\ntext_color:#ffffff\nbase_color:#242424\nselected_fg_color:#ffffff\nselected_bg_color:#3584e4\ninsensitive_fg_color:#a0a0a0\ninsensitive_bg_color:#242424"
+gtk-color-scheme = "fg_color:#ffffff\nbg_color:#242424\ntext_color:#ffffff\nbase_color:#242424\nselected_fg_color:#ffffff\nselected_bg_color:#666666\ninsensitive_fg_color:#a0a0a0\ninsensitive_bg_color:#242424"
 
 gtk-icon-sizes = "gtk-button=16,16:gtk-dnd=16,16:panel=16,16:gtk-small-toolbar=16,16:gtk-large-toolbar=24,24:"
 gtk-button-images = 0
@@ -31,8 +31,8 @@ style "murrine-default" {
     bg[ACTIVE]        = @selected_bg_color
 
     base[NORMAL]      = shade(1.2, @bg_color)
-    base[SELECTED]    = @selected_bg_color
-    base[ACTIVE]      = @selected_bg_color
+    base[SELECTED]    = shade(2.0, @bg_color)
+    base[ACTIVE]      = shade(2.0, @bg_color)
 
 }
 
@@ -64,7 +64,30 @@ style "murrine-entry" = "murrine-default" {
     base[INSENSITIVE] = @bg_color # Prevents white entry when disabled
     bg[INSENSITIVE]   = @bg_color
 }
+# ---------------------------------------------------------
+# SCROLLBAR: Lighter & "Outside" Style
+# ---------------------------------------------------------
+style "murrine-scrollbar" {
+    # Geometry: Higher trough-border makes the slider look like it's "outside" or floating
+    GtkScrollbar::slider-width = 10
+    GtkScrollbar::trough-border = 3
+    GtkScrollbar::has-backward-stepper = 0
+    GtkScrollbar::has-forward-stepper = 0
 
+    # Colors: Making the slider handle lighter
+    bg[NORMAL]   = shade(2.5, @bg_color)   # Very light grey handle
+    bg[PRELIGHT] = shade(3.3, @bg_color)   # Even lighter on hover
+    bg[ACTIVE]   = shade(1.5, @bg_color)       # Blue when dragging (matches your theme)
+
+    # Trough: Making the track it slides in blend with the background
+    bg[INSENSITIVE] = @bg_color
+
+}
+
+# Apply the scrollbar style
+class "GtkScrollbar"  style "murrine-scrollbar"
+class "GtkVScrollbar" style "murrine-scrollbar"
+class "GtkHScrollbar" style "murrine-scrollbar"
 # APPLICATION
 class "GtkWidget"    style "murrine-default"
 class "GtkButton"    style "murrine-button"
