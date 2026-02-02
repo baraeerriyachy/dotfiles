@@ -31,9 +31,7 @@ style "murrine-default" {
     bg[ACTIVE]        = @selected_bg_color
 
     base[NORMAL]      = shade(1.2, @bg_color)
-    base[PRELIGHT]    = shade(2.0, @bg_color)
     base[SELECTED]    = @selected_bg_color
-    base[INSENSITIVE] = shade(2.0, @bg_color)
     base[ACTIVE]      = @selected_bg_color
 
 }
