@@ -27,6 +27,9 @@ return {
     event = "VeryLazy",  -- optional: lazy load
     config = function()
       require("code_runner").setup {
+        before_run_filetype = function()
+                vim.cmd("silent! w") -- Saves the file without showing the "written" message
+        end,
         filetype = {
           java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
           python = "python3 -u",
@@ -47,5 +50,5 @@ return {
     init = function()
       vim.g.suda_smart_edit = 1
     end,
-  }
+  },
 }
