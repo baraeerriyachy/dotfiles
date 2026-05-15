@@ -5,12 +5,30 @@ return {
     opts = require "configs.conform",
   },
 
-  -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
+    event = "User FilePost",
     config = function()
-      require "configs.lspconfig"
+      require("configs.lspconfig")
+      vim.lsp.enable({ "pyright", "jdtls" })
+    end,
+  },
 
+  {
+    "hrsh7th/nvim-cmp",
+    opts = function(_, opts)
+      local cmp = require("cmp")
+      opts.completion = {completeopt = "menu,menuone,noselect"}
+      opts.mapping = vim.tbl_extend("force", opts.mapping, {
+        ["<CR>"] = cmp.mapping.confirm({
+          select = false,
+          behavior = cmp.ConfirmBehavior.Replace,
+        }),
+      })
+      opts.experimental = {
+        ghost_text = true,
+      }
+      return opts
     end,
   },
 
@@ -65,4 +83,5 @@ return {
       })
     end,
   },
+  
 }
