@@ -24,6 +24,13 @@ return {
           select = false,
           behavior = cmp.ConfirmBehavior.Replace,
         }),
+         ["<C-Space>"] = cmp.mapping(function()
+          if cmp.visible() then
+            cmp.close()
+          else
+            cmp.complete()
+          end
+        end),
       })
       opts.experimental = {
         ghost_text = true,
