@@ -5,12 +5,28 @@ return {
     opts = require "configs.conform",
   },
 
-  {
+   {
     "neovim/nvim-lspconfig",
     event = "User FilePost",
     config = function()
       require("configs.lspconfig")
-      vim.lsp.enable({ "pyright", "jdtls" })
+      vim.lsp.enable({"pyright"})
+    end,
+  },
+
+  {
+    "mfussenegger/nvim-jdtls",
+    ft = { "java" },
+    config = function()
+      local config = {
+        cmd = { "jdtls" },
+      }
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "java",
+        callback = function()
+          require("jdtls").start_or_attach(config)
+        end,
+      })
     end,
   },
 
