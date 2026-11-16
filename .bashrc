@@ -18,3 +18,8 @@ export OPENCV_LOG_LEVEL=ERROR
 alias vim='nvim'
 alias vi='nvim'
 alias nano='nvim'
+
+#NVIM: match directory with file location
+export PROMPT_COMMAND='printf "\033]7;file://%s%s\033\\" "$HOSTNAME" "$PWD"'
+
+export PATH="$HOME/.local/bin:$PATH"
